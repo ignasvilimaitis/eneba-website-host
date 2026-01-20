@@ -1,42 +1,329 @@
-#root {
-  max-width: 1280px;
+:root {
+  --bg: #4b2bbd;
+  --bg2: #3c21a2;
+  --card: #6d52b6;
+  --card2: #8b74c7;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+  --muted2: rgba(255, 255, 255, 0.55);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --green: #2cff7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: var(--text);
+  background: radial-gradient(1200px 600px at 50% -50%, #2707b4 0%, var(--bg) 45%, #4529a0 100%);
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.wrap {
+  width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0));
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.topbarInner {
+  display: grid;
+  grid-template-columns: 220px 1fr 260px;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  width: 160px;
+  height: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search {
+  height: 46px;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  border: 1px solid rgb(255, 255, 255);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.searchIcon {
+  display: grid;
+  place-items: center;
+  opacity: 0.9;
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.search-container .search {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.clearBtn {
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: end;
+}
+
+.langSwitch {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.langSwitch:hover {
+  color: white;
+}
+
+.langSwitch:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 4px;
+}
+
+
+.iconBtn {
+  border: none;
+  background: transparent;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  background: transparent;
+  place-items: center;
+  border:none;
+}
+
+.resultsMeta {
+  padding: 18px 0 12px 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  padding-bottom: 60px;
 }
 
 .card {
-  padding: 2em;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+  box-shadow: var(--shadow);
 }
 
-.read-the-docs {
-  color: #888;
+.cover {
+  position: relative;
+  height: 260px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.badge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.platform {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cardBody {
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(30, 12, 82, 0.55), rgba(20, 7, 60, 0.65));
+}
+
+.title {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.95);
+  min-height: 34px;
+}
+
+.region {
+  margin-top: 6px;
+  color: var(--green);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.priceRow {
+  margin-top: 10px;
+}
+
+.oldPrice {
+  color: var(--muted2);
+  font-size: 12px;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.discount {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 800;
+  margin-left: 6px;
+}
+
+.price {
+  margin-top: 4px;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.cashback {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.footer {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.like {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.buyBtn {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.buyBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .topbarInner {
+    grid-template-columns: 180px 1fr 260px;
+  }
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .topbarInner {
+    grid-template-columns: 1fr;
+  }
+  .right {
+    justify-content: flex-start;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
