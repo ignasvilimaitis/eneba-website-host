@@ -11,13 +11,21 @@ export default function Header({ query, onQueryChange }) {
         <div className = "search-container">
                     <SearchBar value={query} onChange={onQueryChange} />
         <button className="langSwitch">
-  🌍    <span className="langText">English EU | EUR</span>
+          <img src="https://cdn-icons-png.flaticon.com/256/3973/3973535.png" alt="Language" className="langIcon" />
+      <span className="langText">English EU | EUR</span>
         </button>
         </div>
         <div className="right">
-          <button className="iconBtn">♡</button>
-          <button className="iconBtn">🛒</button>
-          <button className="avatar">🙂</button>
+          <button className="iconBtn">
+            ♡
+          </button>
+          <button className="iconBtn"
+          >
+            🛒 
+          </button>
+          <button className="avatar">
+            <img src="https://icons.veryicon.com/png/o/miscellaneous/rookie-official-icon-gallery/225-default-avatar.png" alt="User Avatar" className="avatarImage" />
+          </button>
         </div>
       </div>
     </header>

@@ -83,6 +83,11 @@ body {
   font-size: 16px;
 }
 
+.searchImage {
+  width: 20px;
+  height: 20px;
+}
+
 .search-container {
   display: flex;
   align-items: center;
@@ -117,6 +122,11 @@ body {
   justify-self: end;
 }
 
+.langIcon {
+  width: 32px;
+  height: 32px;
+}
+
 .langSwitch {
   background: transparent;
   border: none;
@@ -143,6 +153,7 @@ body {
 .iconBtn {
   border: none;
   background: transparent;
+  font-size: 20px;
   width: 38px;
   height: 38px;
   cursor: pointer;
@@ -150,12 +161,19 @@ body {
 }
 
 .avatar {
-  width: 38px;
-  height: 38px;
-  display: grid;
+  width: 32px;
+  height: 32px;
   background: transparent;
   place-items: center;
   border:none;
+  cursor: pointer;
+}
+
+.avatarImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .resultsMeta {
@@ -172,49 +190,41 @@ body {
 }
 
 .card {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
+  border: 1px solid rgba(27, 230, 230, 0.863);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+  cursor: pointer;
   box-shadow: var(--shadow);
 }
 
 .cover {
   position: relative;
-  height: 260px;
+  overflow: hidden;
+  height: 460px;
   background: rgba(0, 0, 0, 0.25);
 }
 
-.cover img {
+.coverImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.badge {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
 .platform {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
   font-size: 12px;
-  font-weight: 700;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  padding: 4px 8px;
 }
 
 .cardBody {
@@ -227,7 +237,6 @@ body {
   font-size: 13px;
   line-height: 1.25;
   color: rgba(255, 255, 255, 0.95);
-  min-height: 34px;
 }
 
 .region {
@@ -238,36 +247,29 @@ body {
   letter-spacing: 0.3px;
 }
 
-.priceRow {
-  margin-top: 10px;
+.priceSection {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
-
 .oldPrice {
-  color: var(--muted2);
-  font-size: 12px;
-}
-
-.strike {
+  font-size: 14px;
+  opacity: 0.75;
   text-decoration: line-through;
 }
 
-.discount {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 800;
-  margin-left: 6px;
+.discountPercent {
+  color: #67cc2d;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 6px;
+  align-self: center;
 }
 
 .price {
-  margin-top: 4px;
   font-weight: 900;
   font-size: 22px;
-}
-
-.cashback {
-  margin-top: 2px;
-  font-size: 12px;
-  color: var(--green);
-  font-weight: 800;
 }
 
 .footer {
