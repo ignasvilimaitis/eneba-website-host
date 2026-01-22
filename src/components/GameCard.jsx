@@ -1,10 +1,15 @@
 export default function GameCard({ item }) {
-  console.log("Rendering GameCard for item:", item.title);
+  const API = import.meta.env.VITE_API_URL;
+  const imgSrc = item.image_url?.startsWith("http")
+  ? item.image_url
+  : `${API}${item.image_url}`;
+
+
   return (
     
     <article className="card">
   <div className="cover">
-    <img src={item.image_url} alt={item.title} className="coverImage"/>
+    <img src={imgSrc} alt={item.title} className="coverImage"/>
     <div className="platform">{item.platform}</div>
   </div>
   <div className="cardBody">
